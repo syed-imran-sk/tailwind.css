@@ -26,11 +26,11 @@ const home = () => {
       </div>
 
       {/* main section */}
-      <div className="flex">
+      <div className="container mx-auto flex mt-12">
 
-        <div>
-          <h1>Full Stack Web Development</h1>
-          <img src={Web} alt="" className="w-90"/>
+        <div className="w-1/3 flex flex-col items-center text-center">
+          <h1  className="text-2xl">Full Stack Web Development</h1>
+          <img src={Dev} alt="" className="w-40 h-40"/>
           <p>
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
@@ -42,9 +42,9 @@ const home = () => {
         </div>
 
 
-        <div>
-        <h1>Full Stack Python Development</h1>
-          <img src={Dev} alt="" className="w-90"/>
+        <div className="w-1/3 flex flex-col items-center text-center">
+        <h1 className="text-2xl">Full Stack Python Development</h1>
+          <img src={Web} alt="" className="w-40 h-40"/>
           <p>
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
@@ -55,9 +55,9 @@ const home = () => {
         </div>
 
 
-        <div>
-        <h1>Full Stack Java Development</h1>
-          <img src={Java} alt="" className="w-90"/>
+        <div className="w-1/3 flex flex-col items-center text-center">
+        <h1  className="text-2xl">Full Stack Java Development</h1>
+          <img src={Java} alt="" className="w-40 h-40"/>
           <p>
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
