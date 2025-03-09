@@ -10,7 +10,9 @@ import Logo from "../assets/mine.jpg";
 
 const navbar = () => {
   return (
-    <nav className="flex justify-between items-center bg-amber-200">
+
+    <div className="container mx-auto">
+      <div className="flex justify-between items-center bg-amber-200">
       <div className="h-16 w-16">
         <a>
           <img src={Logo} alt="" className="rounded-full" />
@@ -37,7 +39,9 @@ const navbar = () => {
         <li><a className="text-blue-600 hover:text-green-500 font-medium" href="Pricing.jsx">Pricing</a></li>
        </ul>
        <button className="bg-green-500 px-6 py-2 rounded-full text-white hover:bg-blue-400 font-medium">Sign-Up</button>
-    </nav>
+    </div>
+    </div>
+    
   );
 };
 
