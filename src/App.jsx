@@ -5,6 +5,7 @@ import Services from "./pages/Services";
 import AboutUs from "./pages/AboutUs"
 import ContactUs from "./pages/ContactUs";
 import Pricing from "./pages/Pricing";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <Services/>
     <AboutUs/>
     <ContactUs/>
+    <Footer/>
     
     
    
