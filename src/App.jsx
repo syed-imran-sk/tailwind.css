@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import "./App.css";
 import Nav from "./components/navbar";
 import Hero from "./pages/hero";
@@ -8,7 +8,7 @@ import ContactUs from "./pages/ContactUs";
 import Pricing from "./pages/Pricing";
 import Footer from "./components/footer";
 
-function App() {
+function Apps() {
   return (
     <>
     <Nav/>
@@ -24,8 +24,7 @@ function App() {
 
     </>
   );
-}
-=======
+};
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import axios from "axios";
@@ -147,6 +146,5 @@ const App = () => {
     </Router>
   );
 };
->>>>>>> 662fe93 (api project)
 
 export default App;

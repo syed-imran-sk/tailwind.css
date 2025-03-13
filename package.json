@@ -1,9 +1,8 @@
 {
-<<<<<<< HEAD
+
   "name": "movie",
-=======
-  "name": "api_pro",
->>>>>>> 662fe93 (api project)
+
+
   "private": true,
   "version": "0.0.0",
   "type": "module",
