@@ -35,19 +35,55 @@ const API_KEY = "your_actual_api_key";  // Replace this with your key
 const API_URL = "https://api.themoviedb.org/3/search/movie";
 
 const Home = () => {
-  const [query, setQuery] = useState("");
-  const [movies, setMovies] = useState([]);
-  const [wishList, setWishList] = useState([]);
+  const API_BASE = "http://localhost:5000/api/movies"; 
+  const [query, setQuery] = useState(""); // ✅ Define query state
+  const [movies, setMovies] = useState([]); // Backend URL
 
-  const searchMovies = async () => {
-    if (!query) return;
-    const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=dragon`);
-    setMovies(response.data.results);
-  };
+// 🔍 Search Movies from Backend
+const searchMovies = async (query) => {
+  try {
+    const response = await axios.get(`${API_BASE}/search/${query}`);
+    setMovies(response.data);
+  } catch (error) {
+    console.error("Error searching movies:", error);
+  }
+};
 
-  const addToWishList = (movie) => {
-    setWishList([...wishList, movie]);
-  };
+// 📌 Add Movie to Wishlist
+const addToWishlist = async (movie) => {
+  try {
+    await axios.post(`${API_BASE}/wishlist`, {
+      title: movie.title,
+      tmdbId: movie.id,
+      posterPath: movie.poster_path,
+      releaseDate: movie.release_date,
+    });
+    alert("Movie added to wishlist!");
+  } catch (error) {
+    console.error("Error adding to wishlist:", error);
+  }
+};
+
+// 📜 Get Wishlist
+const fetchWishlist = async () => {
+  try {
+    const response = await axios.get(`${API_BASE}/wishlist`);
+    setWishlist(response.data);
+  } catch (error) {
+    console.error("Error fetching wishlist:", error);
+  }
+};
+
+// ❌ Remove Movie from Wishlist
+const removeFromWishlist = async (id) => {
+  try {
+    await axios.delete(`${API_BASE}/wishlist/${id}`);
+    fetchWishlist(); // Refresh wishlist
+  } catch (error) {
+    console.error("Error removing from wishlist:", error);
+  }
+};
+
 
   return (
     <div className="p-6 max-w-4xl mx-auto text-center">
@@ -59,7 +95,7 @@ const Home = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button className="bg-blue-500 text-white px-4 py-2 rounded-md mt-2" onClick={searchMovies}>Search</button>
+      <button className="bg-blue-500 text-white px-4 py-2 rounded-md mt-2" onClick={() => searchMovies(query)}>Search</button>
       
       <div className="grid grid-cols-2 gap-4 mt-4">
         {movies.map((movie) => (
